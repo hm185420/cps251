@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">LayOutProject</string>
+
+    <string name="txtView">This is my layout project</string>
+    <string name="btn1">Button 1</string>
+    <string name="btn2">Button 2</string>
+    <string name="btn3">Button 3</string>
+    <string name="chkbox2">CheckBox 2</string>
+    <string name="chkbox1">CheckBox 1</string>
+    <string name="chkbox3">CheckBox 3</string>
+    <string name="chkbox4">CheckBox 4</string>
+    <string name="chkbox5">CheckBox 5</string>
+    <string name="chkbox6">CheckBox 6</string>
+
+</resources>
