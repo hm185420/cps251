@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">recycleViewWithIntents</string>
+    <string name="todo">TODO</string>
+    <string name="itemTitle">itemTitle</string>
+    <string name="todo1">TODO</string>
+    <string name="titleTextView">TODO</string>
+    <string name="titleTextViews">TextView</string>
+    <string name="detailsTextView">TextView</string>
+</resources>
