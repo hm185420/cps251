@@ -4,21 +4,21 @@ import androidx.lifecycle.ViewModel
 import kotlin.random.Random
 
 class MainViewModel : ViewModel() {
-    // Pull Data
+    // Data
     private val theData = Data()
 
-    //Randomized arrays.
-    val titles: Array<String> = theData.details.ramdonize()
+    //Randomized
+    val titles: Array<String> = theData.details.randomize()
     val details: Array<String> = theData.details.randomize()
     val images: IntArray = theData.images.randomize()
 
-    //Uses shuffle to randomize the title and details
+    //Uses shuffle
     private fun <T> Array<T>.randomize(): Array<T> {
         this.shuffle(Random.Default)
         return this
     }
 
-    //Uses shuffle to randomize the image
+    //Uses shuffle
     private fun IntArray.randomize(): IntArray {
         this.shuffle(Random.Default)
         return this

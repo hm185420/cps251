@@ -10,13 +10,13 @@ import com.example.recycleviewwithintents.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    // Binding activity_main.xml
+    // Binding
     private lateinit var binding: ActivityMainBinding
 
-    // Layout for the RecyclerView
+    // Layout: RecyclerView
     private lateinit var layoutManager: RecyclerView.LayoutManager
 
-    // Adapter for the RecyclerView
+    // Adapter: RecyclerView
     private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initializing
+        // Initializing!
         val viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-        // Set up  RecyclerView with LinearLayoutManager
+        // Set up with LinearLayoutManager
         layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        // Set up  RecyclerView with adapter
+        //  RecyclerView with adapter
         adapter = RecyclerAdapter(viewModel)
         binding.recyclerView.adapter = adapter
     }

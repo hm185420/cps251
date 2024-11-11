@@ -14,12 +14,12 @@ class SecondActivity : AppCompatActivity() {
         binding = ActivityySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Get the data from the intent
+        // Get the data
         val title = intent.getStringExtra("TITLE")
         val details = intent.getStringExtra("DETAILS")
         val imageId = intent.getIntExtra("IMAGE_ID", 0)
 
-        // Set the data to the views
+        // Set the data
         binding.titleTextViews.text = title
         binding.detailsTextView.text = details
         binding.imageView.setImageResource(imageId)

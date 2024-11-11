@@ -14,10 +14,10 @@ class RecyclerAdapter(private val viewModel: MainViewModel) : RecyclerView.Adapt
     inner class ViewHolder(private val binding: CardLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
-                // Get the context
+                // Get context
                 val context = it.context
 
-                // Create an intent for the SecondActivity
+                // Create an intent : SecondActivity
                 val intent = Intent(context, SecondActivity::class.java).apply {
                     // Pass data to the SecondActivity
                     putExtra("TITLE", viewModel.titles[adapterPosition])
@@ -25,7 +25,7 @@ class RecyclerAdapter(private val viewModel: MainViewModel) : RecyclerView.Adapt
                     putExtra("IMAGE_ID", viewModel.images[adapterPosition])
                 }
 
-                // Start the activity
+                // Start : activity
                 context.startActivity(intent)
             }
         }
@@ -37,20 +37,20 @@ class RecyclerAdapter(private val viewModel: MainViewModel) : RecyclerView.Adapt
         }
     }
 
-    // RecyclerView needs a new ViewHolder.
+    // RecyclerView : new ViewHolder.
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         // Inflate the layout for the item
         val binding = CardLayoutBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
         return ViewHolder(binding)
     }
 
-    // display the data
+    // display
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
         // Bind the data to the ViewHolder
         viewHolder.bind(i)
     }
 
-    // Returns the total number of items
+    // Returns the total number
     override fun getItemCount(): Int {
         //  size of the titles array as the item count
         return viewModel.titles.size
