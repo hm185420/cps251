@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/enterContactName"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="no"
+            android:hint="@string/enter_name"
+            android:inputType="textPersonName"
+            android:textColorHint="#8D6E63"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/enterContactNumber"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="no"
+            android:hint="@string/enter_number"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textColorHint="#8D6E63"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/Add"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/findBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/Find"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/ascBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/Up"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/descBtn"
+            android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/Down"
+                android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contact_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"/>
+
+
+</LinearLayout>
