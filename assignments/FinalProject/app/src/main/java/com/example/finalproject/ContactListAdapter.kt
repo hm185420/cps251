@@ -5,7 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.databinding.ContactListItemBinding  // Replace with your actual package name
 
-class ContactListAdapter(private val contactItemLayout: Int) : RecyclerView.Adapter<ContactListAdapter.ViewHolder>() {
+
+class ContactListAdapter(private val viewModel: MainViewModel) : RecyclerView.Adapter<ContactListAdapter.ViewHolder>() {
 
     private var contactList: List<Contact>? = null
 
@@ -20,7 +21,10 @@ class ContactListAdapter(private val contactItemLayout: Int) : RecyclerView.Adap
         // garbage
         holder.binding.garbageCan.setImageResource(R.drawable.baseline_delete_24)
         holder.binding.garbageCan.setOnClickListener {
-
+                if (contact != null){
+                    viewModel.deleteContact(contact.id)
+                
+                }
             }
         }
 
@@ -29,19 +33,21 @@ class ContactListAdapter(private val contactItemLayout: Int) : RecyclerView.Adap
         notifyDataSetChanged()
     }
 
-
-}
-    // create viewholder: inflates the layout for an item
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = ContactListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(view)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
+        val binding = ContactListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
+    class ViewHolder(val binding: ContactListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    }
 
     override fun getItemCount(): Int {
-        return contactList?.size ?: 0
+        return contactList?.size?:0
     }
 
 
-    class ViewHolder(val binding: ContactListItemBinding) : RecyclerView.ViewHolder(binding.root)
 }
+

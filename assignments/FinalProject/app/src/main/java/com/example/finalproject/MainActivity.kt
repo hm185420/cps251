@@ -44,18 +44,23 @@ class MainActivity : AppCompatActivity() {
             val nameSearch = binding.enterContactName.text.toString()
             if (nameSearch == ""){
                 Toast.makeText(this, "There are no contacts that match your search", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+                //return@setOnClickListener
             }
             viewModel.findContact(
                 binding.enterContactName.text.toString())
         }
 
         binding.ascButton.setOnClickListener {
-            viewModel.getAllContactsAsc()
+            viewModel.getAllContactsAsc().observe(this){ contact ->
+                adapter?.setContactList(contact)
+
+            }
         }
 
         binding.descButton.setOnClickListener {
-            viewModel.getAllContactsDesc()
+            viewModel.getAllContactsDesc().observe(this){ contact ->
+                adapter?.setContactList(contact)
+            }
         }
     }
 
@@ -75,9 +80,9 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun recyclerSetup() {
-        adapter = ContactListAdapter(R.layout.contact_list_item)
-        binding.contactRecyler.layoutManager = LinearLayoutManager(this)
-        binding.contactRecyler.adapter = adapter
+        adapter = ContactListAdapter(viewModel)
+        binding.contactRecycler.layoutManager = LinearLayoutManager(this)
+        binding.contactRecycler.adapter = adapter
     }
 
 }

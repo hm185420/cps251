@@ -8,12 +8,8 @@ import androidx.lifecycle.MutableLiveData
 
 class MainViewModel (application: Application) : AndroidViewModel(application) {
     private val repository: ContactRepository = ContactRepository(application)
-    private val allContacts: LiveData<List<Contact>>?
-    private val searchResults: MutableLiveData<List<Contact>>
-    init {
-        allContacts = repository.allContacts
-        searchResults = repository.searchResults
-    }
+    private val allContacts: LiveData<List<Contact>>? = repository.allContacts
+    private val searchResults: MutableLiveData<List<Contact>> = repository.searchResults
 
     fun insertContact(contact: Contact) {
         repository.insertContact(contact)
@@ -28,7 +24,7 @@ class MainViewModel (application: Application) : AndroidViewModel(application) {
     fun getAllContactsAsc(): LiveData<List<Contact>> {
         return repository.getAllContactAsc()
     }
-    fun getAllContactsDesc(): LiveData<List<Contact>>? {
+    fun getAllContactsDesc(): LiveData<List<Contact>> {
         return repository.getAllContactDesc()
     }
 
